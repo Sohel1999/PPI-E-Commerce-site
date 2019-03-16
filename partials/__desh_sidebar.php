@@ -8,9 +8,9 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">
-                    <span data-feather="file"></span>
-                    Orders
+                <a class="nav-link" href="../admin/category.php">
+                    <span data-feather="plus"></span>
+                    Category
                 </a>
             </li>
             <li class="nav-item">
