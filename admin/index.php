@@ -1,3 +1,15 @@
+<?php
+    require_once '../vendor/autoload.php';
+    session_start();
+    if(isset($_SESSION['id'])) {
+        header('Location: deshboard.php');
+    }
+    use App\classes\Admin;
+    if(isset($_POST['login'])){
+         $login=new Admin();
+         $login->adminLoginCheck($_POST);
+    }
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -20,18 +32,18 @@
                     <div class="row justify-content-center">
                         <div class="col-sm-7">
                             <h1 class="h3  font-weight-normal text-center text-secondary mb-3"> Admin panel</h1>
-                            <form class="form-signin">
+                            <form class="form-signin" method="post" >
                                 <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
                                 <label for="inputEmail" class="sr-only">Email address</label>
-                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                                <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus name="email">
                                 <label for="inputPassword" class="sr-only">Password</label>
-                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+                                <input type="password" id="inputPassword" class="form-control" placeholder="Password" required name="password">
                                 <div class="checkbox mb-3">
                                     <label>
                                         <input type="checkbox" value="remember-me"> Remember me
                                     </label>
                                 </div>
-                                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                                <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Sign in</button>
                                 <p class="mt-5 mb-3 text-muted">&copy; <?php echo date('Y')?></p>
                             </form>
                         </div>

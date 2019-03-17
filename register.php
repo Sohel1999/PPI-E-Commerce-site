@@ -1,6 +1,11 @@
 <?php require_once 'partials/__header.php' ?>
 <?php
-   
+    require_once 'vendor/autoload.php';
+    use  App\classes\User;
+  if(isset($_POST['register'])){
+      $register=new User();
+      $register->userRegister($_POST,$_FILES);
+  }
 ?>
 <main style="margin-top:10px">
     <div class="container">
@@ -24,15 +29,15 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="inputEmail3" class="col-sm-2 col-form-label">username</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="inputEmail3" placeholder="Username" name="username">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email" name="email">
                             </div>
                         </div>
                         <div class="form-group row">
